@@ -1,0 +1,112 @@
+// shape program using abstraction
+
+package abstractionTask;
+
+public abstract class Shape 
+{
+	String color;
+	boolean filled;
+	public Shape()
+	{
+		
+	}
+	public Shape(String color, boolean filled) {
+		super();
+		this.color = color;
+		this.filled = filled;
+	}
+	public String getColor() {
+		return color;
+	}
+	public void setColor(String color) {
+		this.color = color;
+	}
+	
+	public void setFilled(boolean filled) {
+		this.filled = filled;
+	}
+	public boolean ifFilled()
+	{
+		if(filled)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	public abstract double getArea();
+	public abstract double getPerimeter();
+	@Override
+	public String toString() {
+		return "Shape [color=" + color + ", filled=" + filled + "]";
+	}
+	
+
+}
+
+
+package abstractionTask;
+
+public class Rectangle extends Shape
+{
+	int length;
+	int width;
+	public Rectangle()
+	{
+		
+	}
+	public Rectangle(int length,int width)
+	{
+		this.length=length;
+		this.width=width;
+	}
+	public  Rectangle(String color,boolean filled,int length,int width)
+	{
+		super(color, filled);
+		this.length=length;
+		this.width=width;
+		
+	}
+	@Override
+	public double getArea() {
+		// TODO Auto-generated method stub
+		return length*width;
+	}
+	@Override
+	public double getPerimeter() {
+		// TODO Auto-generated method stub
+		return 2*(length+width);
+	}
+	@Override
+	public String toString() {
+		return super.toString()+"Rectangle [length=" + length + ", width=" + width + ", getArea()=" + getArea() + ", getPerimeter()="
+				+ getPerimeter() + "]";
+	}
+	
+
+}
+
+
+
+
+
+
+
+
+
+package abstractionTask;
+
+public class ShapeMain {
+
+	public static void main(String[] args) {
+	   Circle c1=new Circle("Red",true,24);
+	   System.out.println(c1);
+	   Rectangle r1=new Rectangle("Red",true,89,67);
+	   System.out.println(r1);
+
+	}
+
+}
+

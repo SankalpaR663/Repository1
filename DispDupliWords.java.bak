@@ -1,0 +1,44 @@
+package string_programs;
+
+public class DispDuplicateWords 
+{
+
+	public static void main(String[] args) 
+	{
+		String str = "all is well and all is good";
+		String s[] = str.split(" ");
+		int len = s.length;
+		int freq[] = new int[s.length];
+		String s1="\u0000", s2="\u0000";
+		for(int i=0; i<len; i++)
+		{
+			freq[i]=0;
+			s1 = s[i].toLowerCase();
+			
+			if(s[i] == "\u0000")
+			{
+				break;
+			}
+			
+			for(int j=i+1; j<len; j++)
+			{
+				s2 = s[j].toLowerCase();
+				if(s1.equals(s2))
+				{
+					freq[i]++;
+					s[j] = "\u0000";
+				}		
+			}
+		}
+		
+		for(int j=0; j<len; j++)
+		{
+			if(s[j] == "\u0000"|| s[j] == " ")
+			continue;
+			else if(freq[j]>0)
+			System.out.println("The word '"+s[j]+"' appeared "+freq[j]+" times ");
+		}
+		
+	}
+	
+}
